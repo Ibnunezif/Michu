@@ -1,0 +1,152 @@
+body {
+    padding:0;
+    margin:0;
+    background-color: #3f4992;
+    overflow-y: hidden;
+}
+#container {
+    background-color:#3f4992;
+    height:100vh;
+    padding:5px;
+    padding-bottom: 20px;
+
+}
+#header {
+    height: 15%;
+    background-color: #3f4992;
+    border-radius: 5px;
+    box-shadow:4px 10px 30px 5px #202c87;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width:max-content;
+}
+#body {
+    height: 75%;
+    overflow-y: scroll;
+}
+#prompt {
+    display:flex;
+    background-color: #3f4992;
+    align-items: center;
+    border:solid;
+    border-color: aliceblue;
+    border-radius: 25px;
+    padding-right: 1%;
+    z-index:1;
+    position: fixed;
+    top:88vh;
+    width:95%;
+
+}
+#prompt:hover{
+    border-color:#e07511 ;
+}
+#text {
+    width:90%;
+    background-color: transparent;
+    border: 0;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.5em;
+    outline: none;
+    color: #f1f1f4;
+    resize: none;
+    text-align: center;
+    vertical-align:bottom;
+}
+
+#send {
+    padding:10px;
+    background-color:#3f4992;
+    border-radius: 50%;
+    height: 30px;
+    width:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:4px 10px 30px 5px #202c87;
+    cursor: pointer; 
+}
+#send>i {
+    color: #f1f1f4;
+      
+}
+#robot {
+    display: flex;
+    color:#e07511;
+}
+#robot-icon {
+    font-size :80px;
+    font-weight: 10; 
+}
+
+i{
+    color:#f1f1f4
+}
+#history-icon {
+    margin: 0;
+    font-size: 50px;
+    cursor: pointer;
+}
+#login-icon {
+    margin: 0;
+    font-size: 50px;
+    cursor: pointer;
+}
+#history-region{
+    background-color: #202c87;
+    width:80%;
+    height: 100vh;
+    display:none;
+    box-shadow:4px 10px 30px 5px #202c87;
+}
+#back-icon {
+    font-size: 30px;
+    cursor: pointer;
+    position: relative;
+    left:85%;
+    top:10px;
+}
+
+.message {
+    background-color: #3f4992;
+    box-shadow:1px 1px 50px 1px #202c87;
+    max-width:70%;
+    margin: 10px;
+    margin-bottom: 30px;
+    min-width: min-content;
+    color:#f1f1f4;
+    padding:10px;
+    border-radius: 10px;
+    text-align:start;
+}
+#right {
+    position: relative;
+    left:100px;
+    background-color: #485ae5;
+}
+@media (min-width:900px) {
+    #history-icon {
+        display: none;
+    }
+    #robot{
+        position:relative;
+        left:-200px;
+    }
+    #absoulte {
+        display:grid;
+        grid-template-columns: 3fr 7fr;
+    }
+    #history-region {
+        display: block;
+        background-color: #202c87;
+    }
+    #back-icon{
+        display: none;
+    }
+    #prompt {
+        width:65%;
+    }
+
+}

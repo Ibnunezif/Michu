@@ -1,0 +1,121 @@
+body {
+    padding:0;
+    margin: 0;
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    height:100vh;
+    background-color: #060c4b;
+}
+#registration-container{
+    background-color: #060c4b;
+    box-shadow:4px 10px 30px 5px #1b1d34;
+    padding:30px;
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items:center;
+    border-radius: 25px;
+}
+
+#registration-container:hover{
+    box-shadow:4px 10px 30px 5px #3f4992;
+}
+
+.input-area{
+    display: flex;
+    gap:30px
+}
+h1,p{
+    color: #e07511;
+}
+h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+button {
+    background-color: #f1f1f4;
+    height: 30px;
+    width:85px;
+    border-radius: 5px;
+    border:0;
+    color: #221203;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+button:hover{
+    transform: scale(0.98);
+    box-shadow:4px 10px 30px 5px #7d451a;
+}
+
+input {
+    background-color: transparent;
+    border-top: 0;
+    border-left:0 ;
+    border-right: 0;
+    height: 40px;
+    line-height: 80px;
+    width:100%;
+    color:#e07511;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.5em;
+    outline: none;
+}
+input:hover {
+    border-color: #e07511;
+    transform: scale(1.05);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset; 
+    box-shadow: 0 0 0 1000px transparent inset; 
+    -webkit-text-fill-color: #e07511; 
+}
+#region {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+#region-2 {
+    display:flex;
+}
+.label {
+    height: 30px;
+    width:120px;
+    font-weight: 800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#have-account {
+    display: block;
+    width:200px;
+    background-color: #e07511;
+    color:#f1f1f4;
+}
+#region-1{  
+    display:none;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+}
+
+#back-arrow-div {
+    position: relative;
+    top:-100px;
+    left:-10px;
+    background-color: #e07511;
+    color:#f1f1f4;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:4px 10px 30px 5px #010417;
+    cursor: pointer;
+}
+
+
