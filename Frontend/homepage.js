@@ -25,5 +25,14 @@ $(document).ready (()=>{
     $("#send").click(()=>{
         var userRequest=$("#text").val();
         $("#body").append(`<div class='message' id='right'>${userRequest}</div>`);
+        $("#text").val(" ");
+        $('#text').attr('placeholder', 'Ask me any thing');
+    })
+})
+
+// redirecting to registration and login page
+$(document).ready (()=>{
+    $("#login-icon").click(()=>{
+        window.location.href = 'index.html';
     })
 })

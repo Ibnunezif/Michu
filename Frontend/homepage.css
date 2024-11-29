@@ -27,20 +27,22 @@ body {
 }
 #prompt {
     display:flex;
+    box-sizing: border-box; 
     background-color: #3f4992;
     align-items: center;
     border:solid;
-    border-color: aliceblue;
     border-radius: 25px;
     padding-right: 1%;
     z-index:1;
     position: fixed;
     top:88vh;
     width:95%;
-
+    text-align: end;
+    border-color:#77a1e1 ;
 }
+
 #prompt:hover{
-    border-color:#e07511 ;
+    border-color: aliceblue;
 }
 #text {
     width:90%;
@@ -52,8 +54,11 @@ body {
     outline: none;
     color: #f1f1f4;
     resize: none;
-    text-align: center;
     vertical-align:bottom;
+    border-radius: 25px;
+    height: 30px;
+    padding-top:10px;
+    padding-left: 20px;
 }
 
 #send {
@@ -123,9 +128,10 @@ i{
 }
 #right {
     position: relative;
-    left:100px;
+    left:20%;
     background-color: #485ae5;
 }
+
 @media (min-width:900px) {
     #history-icon {
         display: none;
