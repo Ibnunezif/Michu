@@ -81,7 +81,7 @@ app.post('/login', async (req,res)=>{
           res.send('<script>alert("Incorrect Password, please try again."); window.location.href = "/login";</script>');
         }
       } else {
-        res.render('register');
+        res.send('<script>alert("There is no such account, please try again or register."); window.location.href = "/login";</script>');
       }
     } catch (err) {
       console.log(err);
