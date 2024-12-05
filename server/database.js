@@ -14,6 +14,8 @@ import { fileURLToPath } from 'url';
 const app = express();
 const port = 3000;
 
+
+// this was my local database connection informations modify by yours
 const db = new pg.Client({
     user: "postgres",
     host: "localhost",
