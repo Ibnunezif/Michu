@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="/regstration.css">
+</head>
+<body>
+    
+    <div id="registration-container">
+        <h1>Register</h1>
+        <form action="/register" method="post">
+                    <label for="first-name"></label>
+                    <input type="text" id="name" name="firstName" placeholder="First name" required>
+                
+                    <label for="last-name"></label>
+                    <input type="text" id="last-name" name="lastName" placeholder="Last name" required>
+                    
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="email" required>
+                    <label for="password"></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Register" id="register" >
+        </form>
+        <button >Have an account</button>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/register.js"></script>
+    </div>
+</body>
+</html>
