@@ -49,13 +49,13 @@ app.post('/register', async (req, res) => {
         ]);
     
         if (checkResult.rows.length > 0) {
-          res.render('login');
+          res.render ('login');
         } else {
           const result = await db.query(
             "INSERT INTO users (firstName,lastName,email, password) VALUES ($1, $2,$3,$4)", 
             [firstName, lastName, email,password]
           );
-          res.render("homepage");
+          res.render("login");
         }
       } catch (err) {
         console.log(err);
