@@ -1,3 +1,9 @@
+/*
+For any one who wants to test this app:
+   the database that I used is postgresql and it have two tables inside
+        1,users    query: create table users(firstName varchar(50) not null,lastName varchar(50) not null,email varchar(50) primary key not null unique,password varchar(20) not null);
+        2,chat     query: create table chat(id serial primary key,email varchar(50),request text,response text,foreign key(email) references users)
+*/
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
