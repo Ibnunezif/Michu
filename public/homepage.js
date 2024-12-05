@@ -1,3 +1,10 @@
+/*
+I wanted to display the previous history of users on the left side of homepage 
+when screen size is large and animated side bar using humberger icon for smaller screen
+I completed the database logic using chat schema and also prepared frontend places for it I will add this feature soon. 
+*/
+
+
 //the request written by user on prompt 
 // Interface correction
 $(document).ready (()=>{
