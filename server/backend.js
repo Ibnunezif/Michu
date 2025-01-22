@@ -35,6 +35,24 @@ app.set('views', path.join(__dirname, '../views'));
 
 let chatHistory = [];
 
+// User registration route
+app.get('/register', (req, res) => {
+    res.render('register'); 
+});
+// User login route
+app.get('/login', (req, res) => {
+    res.render('login'); 
+});
+
+// Homepage route
+app.get('/homepage', (req, res) => {
+    if (!req.cookies.email) {
+        return res.redirect('/login'); 
+    }
+    res.render('homepage');
+});
+
+
 // Chat route
 app.post('/chat', async (req, res) => {
     try {
@@ -73,22 +91,6 @@ app.post('/chat', async (req, res) => {
     }
 });
 
-// User registration route
-app.get('/register', (req, res) => {
-    res.render('register'); 
-});
-// User login route
-app.get('/login', (req, res) => {
-    res.render('login'); 
-});
-
-// Homepage route
-app.get('/homepage', (req, res) => {
-    if (!req.cookies.email) {
-        return res.redirect('/login'); 
-    }
-    res.render('homepage');
-});
 
 app.post('/register', async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
