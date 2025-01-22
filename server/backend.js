@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import cors from 'cors';
 import pg from 'pg';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import cookieParser from 'cookie-parser';
