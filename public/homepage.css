@@ -43,6 +43,7 @@ body {
     border-color:#77a1e1 ;
 }
 
+
 #prompt:hover{
     border-color: aliceblue;
 }
@@ -110,6 +111,20 @@ i{
     display:none;
     box-shadow:0px 0px 20px 1px #2b2b3d;
     padding:10px;
+    text-align: center;
+    overflow-y: scroll;
+    color: #f1f1f4;
+}
+#historyCard {
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+    color:#f1f1f4;
+    border:2px solid #77a1e1;
+    height: 70px;
+    box-shadow:0px 0px 20px 1px #2b2b3d;
+    text-align: start;
 }
 #back-icon {
     font-size: 30px;

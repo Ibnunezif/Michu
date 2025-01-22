@@ -48,12 +48,20 @@ app.get('/login', (req, res) => {
 });
 
 // Homepage route
-app.get('/homepage', (req, res) => {
+app.get('/homepage', async (req, res) => {
     if (!req.cookies.email) {
         return res.redirect('/login'); 
     }
-    res.render('homepage');
+    try {
+        const result = await db.query("SELECT * FROM chat where email = $1", [req.cookies.email]); 
+        res.render('homepage', { chats: result.rows }); 
+    } catch (err) {
+        console.error('Error fetching data:', err);
+        res.status(500).send('Internal Server Error');
+    }
 });
+
+
 
 
 // Chat route

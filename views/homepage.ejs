@@ -11,6 +11,10 @@
     <div id="absoulte">
     <div id="history-region">
         <i id="back-icon" class="material-icons">arrow_back</i>
+        <h1>History</h1>
+        <% chats.forEach(chat=>{%>
+           <div id="historyCard"><%=chat.email%> </div> 
+        <% }) %> 
     </div>
     <div id="container">
         <div id="header">
