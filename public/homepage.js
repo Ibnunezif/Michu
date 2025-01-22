@@ -31,6 +31,7 @@ $(document).ready (()=>{
 
 async function postText () {
     var userRequest=$("#text").val().trim();
+    if (userRequest=="") return;
     $("#body").append(`<div class='message' id='right'>${userRequest}</div>`);
         //we can use botResponse variable imported here;
     $("#body").append (`<div class="message" id='user'>wait...</div>`);
