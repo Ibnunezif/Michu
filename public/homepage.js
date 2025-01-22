@@ -33,13 +33,13 @@ async function postText () {
     var userRequest=$("#text").val().trim();
     $("#body").append(`<div class='message' id='right'>${userRequest}</div>`);
         //we can use botResponse variable imported here;
-    $("#body").append (`<div class="message" id='user'>wait</div>`);
+    $("#body").append (`<div class="message" id='user'>wait...</div>`);
     $("#text").val("");
     $('#text').attr('placeholder', 'Ask me any thing');
-    $('#body').animate ({scrollTop:5000});
+     $('#body').animate ({scrollTop:5000});// $('#body').animate({ scrollTop: $('#body')[0].scrollHeight }, 'slow');
 
     // fetch data from server
-    const response = await fetch('http://localhost:5000', {
+    const response = await fetch('http://localhost:5000/chat', {
         method: 'POST',
         body: JSON.stringify({prompt: userRequest}),
         headers: {
@@ -55,7 +55,7 @@ async function postText () {
     const htmlData = convertMarkdownToHTML(parsedData);
     $("#user").remove();
     $("#body").append(`<div class="message" >${htmlData}</div>`);
-    $('#body').animate ({scrollTop:5000});
+    $('#body').animate ({scrollTop:5000});  //$('#body').animate({ scrollTop: $('#body')[0].scrollHeight }, 'slow');
     }else{
         console.error('Error:', response.statusText);
         setTimeout(()=>{
