@@ -137,7 +137,7 @@ app.post('/login', async (req, res) => {
                 res.cookie('email', email, {
                       maxAge: 900000,
                       httpOnly: true, 
-                      secure: false, 
+                      secure: true, 
                       sameSite: 'None' 
                     }); 
 
