@@ -1,11 +1,12 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import pg from 'pg';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import bcrypt from 'bcryptjs';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 dotenv.config();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
@@ -24,8 +25,6 @@ db.connect();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,6 +33,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
 let chatHistory = [];
+
+app.get('/', (req, res) => {
+    res.redirect('/login');
+});
 
 // User registration route
 app.get('/register', (req, res) => {
@@ -98,13 +101,21 @@ app.post('/register', async (req, res) => {
         const checkResult = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
         if (checkResult.rows.length > 0) {
-            res.render('login');
+            res.redirect('/login');
         } else {
+            const hashedPassword=await bcrypt.hash(password,10);
             await db.query(
                 "INSERT INTO users (firstName, lastName, email, password) VALUES ($1, $2, $3, $4)", 
-                [firstName, lastName, email, password]
+                [firstName, lastName, email, hashedPassword]
             );
-            res.render("login");
+            res.cookie('email', email, {
+                maxAge: 900000,
+                httpOnly: true, 
+                secure: true, 
+                sameSite: 'None' 
+              }); 
+
+            res.redirect("/login");
         }
     } catch (err) {
         console.log(err);
@@ -116,11 +127,20 @@ app.post('/login', async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM users WHERE email = $1", [email]);
         if (result.rows.length > 0) {
+
             const user = result.rows[0];
             const storedPassword = user.password;
+            const isMatch = await bcrypt.compare(password, storedPassword);
 
-            if (password === storedPassword) {
-                res.cookie('email', email, { maxAge: 900000, httpOnly: true, secure: true, sameSite: 'None' }); 
+            if (isMatch) {
+
+                res.cookie('email', email, {
+                      maxAge: 900000,
+                      httpOnly: true, 
+                      secure: false, 
+                      sameSite: 'None' 
+                    }); 
+
                 res.redirect("/homepage");
             } else {
                 res.send('<script>alert("Incorrect Password, please try again."); window.location.href = "/login";</script>');
