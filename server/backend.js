@@ -102,6 +102,14 @@ app.get('/login', (req, res) => {
     res.render('login'); 
 });
 
+// Homepage route
+app.get('/homepage', (req, res) => {
+    if (!req.cookies.email) {
+        return res.redirect('/login'); 
+    }
+    res.render('homepage');
+});
+
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -112,7 +120,7 @@ app.post('/login', async (req, res) => {
 
             if (password === storedPassword) {
                 res.cookie('email', email, { maxAge: 900000, httpOnly: true, secure: true, sameSite: 'None' }); 
-                res.render("homepage");
+                res.redirect("/homepage");
             } else {
                 res.send('<script>alert("Incorrect Password, please try again."); window.location.href = "/login";</script>');
             }
