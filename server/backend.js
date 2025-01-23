@@ -102,6 +102,11 @@ app.post('/chat', async (req, res) => {
     }
 });
 
+app.post('/logout', (req, res) => {
+    res.clearCookie('email');
+    res.redirect('/login');
+});
+
 
 app.post('/register', async (req, res) => {
     const { firstName, lastName, email, password } = req.body;

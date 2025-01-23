@@ -26,6 +26,7 @@ function convertMarkdownToHTML(text) {
         </div>    
         <% }) }%> 
     </div>
+    
     <div id="container">
         <div id="header">
             <div class="icon-div">
@@ -36,7 +37,9 @@ function convertMarkdownToHTML(text) {
                 <h1>Michu</h1>
             </div>
             <div class="icon-div">
-                <i id="login-icon" class="material-icons">logout</i>
+                <form action="/logout" method="post">
+                    <button type="submit"><i id="login-icon" class="material-icons">logout</i></button>
+                </form>
             </div>
         </div>
         <div id="body">

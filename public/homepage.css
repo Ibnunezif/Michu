@@ -93,6 +93,10 @@ body {
 i{
     color:#f1f1f4
 }
+button[type="submit"]{
+    background-color: transparent;
+    border:0;
+}
 #history-icon {
     margin: 0;
     font-size: 50px;
