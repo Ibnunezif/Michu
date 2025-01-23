@@ -34,7 +34,11 @@ async function postText () {
     if (userRequest=="") return;
     $("#body").append(`<div class='message' id='right'>${userRequest}</div>`);
         //we can use botResponse variable imported here;
-    $("#body").append (`<div class="message" id='user'>wait...</div>`);
+    $("#body").append (`<div class="message loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>`);
     $("#text").val("");
     $('#text').attr('placeholder', 'Ask me any thing');
 
@@ -54,16 +58,19 @@ async function postText () {
     if (response.ok) {
     const data = await response.json();
     const parsedData=data.bot;
-  
-
     const htmlData = convertMarkdownToHTML(parsedData);
-    $("#user").remove();
+
+
+    $(".loader").remove();
     $("#body").append(`<div class="message" >${htmlData}</div>`);
-    $('#body').animate ({scrollTop:5000}); 
+    $('#body').animate({
+        scrollTop: $("window").height() 
+    }, 2000); 
+
     }else{
         console.error('Error:', response.statusText);
         setTimeout(()=>{
-            $("#user").remove();
+            $(".loader").remove();
             $("#body").append (`<div class="message" id="error" >Something went wrong!</div>`);
         },1000)
     }

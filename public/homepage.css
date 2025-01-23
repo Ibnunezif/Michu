@@ -159,6 +159,8 @@ i{
     border-radius: 10px;
     text-align:start;
     white-space: pre-wrap;  
+    width:fit-content;
+    height: fit-content;
 }
 
 strong {
@@ -185,6 +187,36 @@ span {
 #error {
     color:red;
     border-bottom: solid 2px red;
+}
+.loader {
+    display: flex;
+    align-items: flex-end;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #e07511; 
+    animation: bounce 0.6s infinite alternate;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
 }
 
 @media (min-width:900px) {
