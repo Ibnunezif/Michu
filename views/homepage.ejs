@@ -1,3 +1,8 @@
+<%
+function convertMarkdownToHTML(text) { 
+    return text.replace(/\*\*(.*?)\*\*/g, '$1');
+}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +17,14 @@
     <div id="history-region">
         <i id="back-icon" class="material-icons">arrow_back</i>
         <h1>History</h1>
-        <% chats.forEach(chat=>{%>
-           <div id="historyCard"><%=chat.email%> </div> 
-        <% }) %> 
+        <% if (locals.chats) { %>
+           <% chats.forEach(chat=>{%>
+           <%const htmlResponse = convertMarkdownToHTML(chat.response);%>
+           <div class="historyCard">
+           <h3 id="historyRequest"><%=chat.request %></h3>
+           <div class="message"> <%= htmlResponse %></div>
+        </div>    
+        <% }) }%> 
     </div>
     <div id="container">
         <div id="header">

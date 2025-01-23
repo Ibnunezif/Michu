@@ -37,7 +37,10 @@ async function postText () {
     $("#body").append (`<div class="message" id='user'>wait...</div>`);
     $("#text").val("");
     $('#text').attr('placeholder', 'Ask me any thing');
-     $('#body').animate ({scrollTop:5000});// $('#body').animate({ scrollTop: $('#body')[0].scrollHeight }, 'slow');
+
+     $('#body').animate({
+        scrollTop: $("window").height() 
+    }, 2000);
 
     // fetch data from server
     const response = await fetch('http://localhost:5000/chat', {
@@ -56,13 +59,13 @@ async function postText () {
     const htmlData = convertMarkdownToHTML(parsedData);
     $("#user").remove();
     $("#body").append(`<div class="message" >${htmlData}</div>`);
-    $('#body').animate ({scrollTop:5000});  //$('#body').animate({ scrollTop: $('#body')[0].scrollHeight }, 'slow');
+    $('#body').animate ({scrollTop:5000}); 
     }else{
         console.error('Error:', response.statusText);
         setTimeout(()=>{
             $("#user").remove();
             $("#body").append (`<div class="message" id="error" >Something went wrong!</div>`);
-        },3000)
+        },1000)
     }
 }
 
@@ -77,6 +80,10 @@ async function postText () {
         }
     });
 
+    $(".historyCard").click(function() {
+        $(this).toggleClass("expanded");
+    });
+
 
 // redirecting to and login page
 
@@ -85,4 +92,4 @@ async function postText () {
     });
 
 });
-// export default userRequest;
+

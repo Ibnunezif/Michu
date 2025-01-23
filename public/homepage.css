@@ -1,7 +1,6 @@
 body {
     padding:0;
     margin:0;
-    /* background-color: #3f4992; */
     background-color: #343541;
     overflow-y: hidden;
 }
@@ -11,8 +10,7 @@ body {
     padding:10px;
 }
 #header {
-    height: 15%;
-    /* background-color: #242424; */
+    height: 10%;
     background-color: #34354190;
     border-radius: 5px;
     box-shadow:1px 1px 10px 1px #0b0b18;
@@ -20,9 +18,11 @@ body {
     justify-content: space-around;
     align-items: center;
     min-width:max-content;
+    max-width: 95%;
+    border-bottom: solid 1px #77a1e1;
 }
 #body {
-    height: 60%;
+    height: 70%;
     overflow-y: scroll;
     padding:30px;
     padding-left: 10px;
@@ -31,16 +31,15 @@ body {
     display:flex;
     box-sizing: border-box; 
     background-color: #343541;
-    align-items: center;
-    border:solid;
+    align-items: center ;
+    border:solid 1px #77a1e1 ;
     border-radius: 25px;
     padding-right: 1%;
     z-index:1;
-    position: fixed;
+    position: absolute;
     top:88vh;
     width:95%;
     text-align: end;
-    border-color:#77a1e1 ;
 }
 
 
@@ -85,8 +84,10 @@ body {
     color:#e07511;
 }
 #robot-icon {
-    font-size :80px;
-    font-weight: 10; 
+    position: relative;
+    top:12px;
+    font-size :50px;
+    font-weight: 8; 
 }
 
 i{
@@ -106,7 +107,6 @@ i{
 }
 #history-region{
     background-color: #2d2d2d;
-    width:96%;
     height: 100vh;
     display:none;
     box-shadow:0px 0px 20px 1px #2b2b3d;
@@ -115,22 +115,35 @@ i{
     overflow-y: scroll;
     color: #f1f1f4;
 }
-#historyCard {
-    background-color: #2d2d2d;
+.historyCard {
+    background-color:  #343541;
     border-radius: 10px;
     padding:10px;
     margin:10px;
     color:#f1f1f4;
-    border:2px solid #77a1e1;
-    height: 70px;
+    border:1px solid #77a1e1;
+    height: 60px;
     box-shadow:0px 0px 20px 1px #2b2b3d;
     text-align: start;
+    cursor: pointer;
+    overflow: hidden;
 }
+
+
+.historyCard:hover{
+    border:1px solid #f1f1f4;
+    transform: scale(1.01);
+}
+
+.expanded {
+    height: fit-content;
+}
+
 #back-icon {
     font-size: 30px;
     cursor: pointer;
     position: relative;
-    left:85%;
+    left:35%;
     top:10px;
 }
 
@@ -145,8 +158,9 @@ i{
     padding:10px;
     border-radius: 10px;
     text-align:start;
-    white-space: pre-wrap;
+    white-space: pre-wrap;  
 }
+
 strong {
     color:#e07511;
 }
@@ -155,14 +169,22 @@ strong {
     left:3%;
     background-color:#343541;
     box-shadow:0px 0px 20px 1px #2b2b3d;
-
 }
+
+#historyRequest {
+    background-color:#343541;
+    box-shadow:0px 0px 20px 1px #2b2b3d;
+    padding:10px;
+    white-space: pre-wrap; 
+}
+
 span {
     color:#e07511;
     font-weight: 700;
 }
 #error {
-    background-color: red;
+    color:red;
+    border-bottom: solid 2px red;
 }
 
 @media (min-width:900px) {
@@ -186,6 +208,7 @@ span {
     #history-region {
         display: block!important;
         background-color: #2b2b3d;
+        
     }
     #back-icon{
         display: none;
