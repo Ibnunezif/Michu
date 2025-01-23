@@ -43,8 +43,9 @@ async function postText () {
     $('#text').attr('placeholder', 'Ask me any thing');
 
      $('#body').animate({
-        scrollTop: $("window").height() 
+        scrollTop:$("#body")[0].scrollHeight 
     }, 2000);
+    
 
     // fetch data from server
     const response = await fetch('http://localhost:5000/chat', {
@@ -64,8 +65,9 @@ async function postText () {
     $(".loader").remove();
     $("#body").append(`<div class="message" >${htmlData}</div>`);
     $('#body').animate({
-        scrollTop: $("window").height() 
-    }, 2000); 
+        scrollTop: $("#body")[0].scrollHeight
+    }, 2000);
+    
 
     }else{
         console.error('Error:', response.statusText);
