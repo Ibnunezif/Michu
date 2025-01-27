@@ -14,11 +14,11 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const port = 5000; // server port
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "michu",
-    password: "12345678",
-    port: 5432,
+    user: process.env.USER,
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE_NAME,
+    password: process.env.DATABASE_PASSWORD,
+    port: process.env.DATABASE_PORT,
 });
 db.connect();
 
