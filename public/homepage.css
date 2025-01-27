@@ -165,6 +165,7 @@ button[type="submit"]{
     white-space: pre-wrap;  
     width:fit-content;
     height: fit-content;
+    border-bottom:solid 1px #77a1e1;
 }
 
 strong {
@@ -182,6 +183,8 @@ strong {
     box-shadow:0px 0px 20px 1px #2b2b3d;
     padding:10px;
     white-space: pre-wrap; 
+    border-radius: 5px;
+    border-bottom:solid 1px white;
 }
 
 span {
@@ -190,7 +193,7 @@ span {
 }
 #error {
     color:red;
-    border-bottom: solid 2px red;
+    border-bottom: solid 1px red;
 }
 .loader {
     display: flex;

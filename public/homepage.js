@@ -73,7 +73,7 @@ async function postText () {
         console.error('Error:', response.statusText);
         setTimeout(()=>{
             $(".loader").remove();
-            $("#body").append (`<div class="message" id="error" >Something went wrong!</div>`);
+            $("#body").append (`<div class="message" id="error" >Something went wrong!<br/>please check your Internet!</div>`);
         },1000)
     }
 }
@@ -91,13 +91,6 @@ async function postText () {
 
     $(".historyCard").click(function() {
         $(this).toggleClass("expanded");
-    });
-
-
-// redirecting to and login page
-
-    $("#login-icon").click(()=>{
-        window.location.href = '/login';
     });
 
 });

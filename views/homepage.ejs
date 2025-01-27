@@ -1,7 +1,7 @@
 <%
-function convertMarkdownToHTML(text) { 
-    return text.replace(/\*\*(.*?)\*\*/g, '$1');
-}
+ function convertMarkdownToHTML(text) {
+        return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +21,8 @@ function convertMarkdownToHTML(text) {
            <% chats.forEach(chat=>{%>
            <%const htmlResponse = convertMarkdownToHTML(chat.response);%>
            <div class="historyCard">
-           <h3 id="historyRequest"><%=chat.request %></h3>
-           <div class="message"> <%= htmlResponse %></div>
+           <h3 id="historyRequest"><%- chat.request %></h3>
+           <div class="message"> <%- htmlResponse %></div>
         </div>    
         <% }) }%> 
     </div>
