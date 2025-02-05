@@ -23,8 +23,11 @@ $(document).ready (()=>{
         }     
         $("#container").css("display","block");
     });
+
     function convertMarkdownToHTML(text) {
-        return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/```(.*?)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
+        return text;
     }
 
 // deal with written texts from textArea and post them
@@ -66,7 +69,7 @@ async function postText () {
     $("#body").append(`<div class="message" >${htmlData}</div>`);
     $('#body').animate({
         scrollTop: $("#body")[0].scrollHeight
-    }, 2000);
+    }, 3000);
     
 
     }else{
@@ -74,7 +77,7 @@ async function postText () {
         setTimeout(()=>{
             $(".loader").remove();
             $("#body").append (`<div class="message" id="error" >Something went wrong!<br/>please check your Internet!</div>`);
-        },1000)
+        },1500)
     }
 }
 

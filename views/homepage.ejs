@@ -1,6 +1,8 @@
 <%
- function convertMarkdownToHTML(text) {
-        return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+function convertMarkdownToHTML(text) {
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/```(.*?)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>');
+        return text;
     }
 %>
 <!DOCTYPE html>
@@ -10,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homePage</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/tomorrow-night-blue.min.css">
     <link rel="stylesheet" href="/homepage.css">
 </head>
 <body>
@@ -51,6 +54,8 @@
         </div>
     </div>
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll(); </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/homepage.js"></script>
 </body>

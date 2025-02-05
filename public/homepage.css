@@ -10,7 +10,7 @@ body {
     padding:10px;
 }
 #header {
-    height: 10%;
+    height: 55px;
     background-color: #34354190;
     border-radius: 5px;
     box-shadow:1px 1px 10px 1px #0b0b18;
@@ -119,6 +119,10 @@ button[type="submit"]{
     overflow-y: scroll;
     color: #f1f1f4;
 }
+code {
+    border-radius: 10px;
+    border-bottom:1px solid #77a1e1;
+}
 .historyCard {
     background-color:  #343541;
     border-radius: 10px;
@@ -130,7 +134,8 @@ button[type="submit"]{
     box-shadow:0px 0px 20px 1px #2b2b3d;
     text-align: start;
     cursor: pointer;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x:auto;
 }
 
 
@@ -238,7 +243,7 @@ span {
         width:100%;
         background-color:#77a1e1;
         display:grid;
-        grid-template-columns: 3fr 7fr;
+        grid-template-columns: 2fr 3fr;
     }
     #container{
         display: block !important;
@@ -253,7 +258,7 @@ span {
         display: none;
     }
     #prompt {
-        width:65%;
+        width:55%;
     }
 
 }
